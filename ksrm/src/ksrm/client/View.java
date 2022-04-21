@@ -1,16 +1,28 @@
 package ksrm.client;
 
 
-import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Insets;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import javax.swing.text.html.HTMLDocument.Iterator;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
 
 public class View {
 
@@ -24,7 +36,9 @@ public class View {
 	           new javax.swing.JButton( "jButton4" );
 	
 	public View() {
+		read_xml();
 		build_start_frame();
+
 	}
 	
 	public JFrame get_frame() {
@@ -39,17 +53,10 @@ public class View {
 		GraphicsDevice display;		
 		display = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		
-		JPanel p1 = new JPanel();
-		p1.setLayout(new java.awt.BorderLayout());
-		
-/*		p1.add(jButton2, java.awt.BorderLayout.PAGE_END);
-		p1.add(jButton3, java.awt.BorderLayout.LINE_START);
-		p1.add(jButton4, java.awt.BorderLayout.CENTER);
-	*/	
 		
 		frame = new JFrame("Kartonsucht-Rhein-Main");
 		frame.setSize(display.getDisplayMode().getWidth(), display.getDisplayMode().getHeight());
-		frame.add(p1);
+		frame.add(build_JPanel());
 		frame.setJMenuBar(build_menuBar());
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,4 +70,81 @@ public class View {
 	return result;
 	}
 	
-}
+	private JPanel build_JPanel() {
+		JPanel result = new JPanel();
+		result.setLayout(new java.awt.BorderLayout());
+		
+		result.add(jButton2, java.awt.BorderLayout.PAGE_END);
+		result.add(jButton3, java.awt.BorderLayout.LINE_START);
+		result.add(jButton4, java.awt.BorderLayout.CENTER);
+		
+		return result;
+	}
+	
+	private void read_xml() {
+//		static final String NAME = "name";
+//	    static final String BUTTONNAME = "buttonname";
+//	    static final String BUTTONNR = "buttonnr";
+		List<Item> items = new ArrayList<Item>();
+		try {
+			XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+			InputStream in = new FileInputStream("C:\\Users\\Basti\\git\\KSRM\\ksrm\\Models\\NewFile.xml");
+			 XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
+	            // read the XML document
+	            Item item = null;
+
+	            while (eventReader.hasNext()) {
+	                XMLEvent event = eventReader.nextEvent();
+
+//	                if (event.isStartElement()) {
+//	                    StartElement startElement = event.asStartElement();
+//	                    // If we have an item element, we create a new item
+//	                        String elementName = startElement.getName().getLocalPart();
+//	                        switch (elementName) {
+//	                        case ITEM:
+//	                            item = new Item();
+//	                            // We read the attributes from this tag and add the date
+//	                            // attribute to our object
+//	                            Iterator<Attribute> attributes = startElement.getAttributes();
+//	                            while (attributes.hasNext()) {
+//	                                Attribute attribute = attributes.next();
+//	                                if (attribute.getName().toString().equals(DATE)) {
+//	                                    item.setDate(attribute.getValue());
+//	                                }
+//	                            }
+//	                            break;
+//	                        case MODE:
+//	                            event = eventReader.nextEvent();
+//	                            item.setMode(event.asCharacters().getData());
+//	                            break;
+//	                        case UNIT:
+//	                            event = eventReader.nextEvent();
+//	                            item.setUnit(event.asCharacters().getData());
+//	                            break;
+//	                        case CURRENT:
+//	                            event = eventReader.nextEvent();
+//	                            item.setCurrent(event.asCharacters().getData());
+//	                            break;
+//	                        case INTERACTIVE:
+//	                            event = eventReader.nextEvent();
+//	                            item.setInteractive(event.asCharacters().getData());
+//	                            break;
+//	                        }
+//	                }
+	                    // If we reach the end of an item element, we add it to the list
+	                    if (event.isEndElement()) {
+	                        EndElement endElement = event.asEndElement();
+	                        if (endElement.getName().getLocalPart().equals("Model")) {
+	                            items.add(item);
+	                        }
+	                    }
+
+	            }
+	        } catch (FileNotFoundException | XMLStreamException e) {
+	            ((Throwable) e).printStackTrace();
+	        }
+	        
+		}
+	}
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ModelSchema" xmlns:tns="http://www.example.org/ModelSchema" elementFormDefault="qualified">
+
+    <element name="Model">
+    	<complexType>
+    		<sequence>
+	        	<element name="Name" type="string"></element> 
+	            <element name="Button" maxOccurs="unbounded">
+	    			<complexType>
+	    				<sequence>
+	    					<element name="ButtonName" type="string" />
+	    					<element  name="ButtonNr" type="positiveInteger" />
+	    				</sequence>
+	    			</complexType> 
+	    		</element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>
