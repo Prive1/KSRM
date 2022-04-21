@@ -17,7 +17,7 @@ public class View {
 	private JFrame frame;
 	
 	    private javax.swing.JButton jButton2 = 
-	           new javax.swing.JButton( "jButton2" );
+	           new javax.swing.JButton( "jButton21" );
 	    private javax.swing.JButton jButton3 = 
 	           new javax.swing.JButton( "jButton3" );
 	    private javax.swing.JButton jButton4 = 
