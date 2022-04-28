@@ -1,32 +1,37 @@
 package ksrm.client;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Item {
 	
 	private String Name;
-	private String ButtonName;
-	private Integer ButtonNr;
+	private Button[] Buttons;
 	
+	
+	
+	public Item() {
+		Buttons = new Button[10];
+	}
 	public String getName() {
 		return Name;
 	}
 	public void setName(String name) {
 		Name = name;
 	}
-	public String getButtonName() {
-		return ButtonName;
+	public Button[] getButtons() {
+		return Buttons;
 	}
-	public void setButtonName(String buttonName) {
-		ButtonName = buttonName;
+	public void setButtons(Button[] buttons) {
+		Buttons = buttons;
 	}
-	public Integer getButtonNr() {
-		return ButtonNr;
+	
+	public void addButton(Button button) {
 	}
-	public void setButtonNr(Integer buttonNr) {
-		ButtonNr = buttonNr;
-	}
-
 	@Override
 	public String toString() {
-		return "Item [Name=" + Name + ", ButtonName=" + ButtonName + ", ButtonNr=" + ButtonNr + "]";
+		return "Item [Name=" + Name + ", Buttons=" + Arrays.toString(Buttons) + "]";
 	}
+
+
 }
