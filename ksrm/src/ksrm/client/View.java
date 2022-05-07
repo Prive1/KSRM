@@ -31,7 +31,6 @@ public class View {
 	private JFrame frame;
 
 	private javax.swing.JButton jButton2 = new javax.swing.JButton("jButton2");
-	private javax.swing.JButton jButton3 = new javax.swing.JButton("jButton3");
 	private javax.swing.JButton jButton4 = new javax.swing.JButton("jButton4");
 
 	public View() {
@@ -146,7 +145,7 @@ public class View {
 
 	private JPanel buildTree() {
 		JPanel result = new JPanel();
-		DefaultMutableTreeNode root  = new DefaultMutableTreeNode("ROOT");
+		DefaultMutableTreeNode root  = new DefaultMutableTreeNode("Modelle");
 		DefaultTreeModel model = new DefaultTreeModel(root);
 		root.add(new DefaultMutableTreeNode("Version 1"));
 		JTree tree = new JTree(model);
