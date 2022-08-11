@@ -7,7 +7,7 @@ public class Control {
 	
 	public Control() {
 		view = new View();
-		model = new Model();
+//		model = new Model();
 	}
 	
 	public View get_view() {

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tns:Model xmlns:tns="http://www.example.org/ModelSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/ModelSchema ModelSchema.xsd ">
-  <tns:Name>FirstModel</tns:Name>
+  <tns:Typ>Schiff</tns:Typ>
+  <tns:Name>Bugsier</tns:Name>
   <tns:Button>
-    <tns:ButtonName>Button 1</tns:ButtonName>
+    <tns:ButtonName>Aussen</tns:ButtonName>
     <tns:ButtonNr>1</tns:ButtonNr>
   </tns:Button>
    <tns:Button>
-    <tns:ButtonName>Button 2</tns:ButtonName>
+    <tns:ButtonName>Brücke Tag</tns:ButtonName>
     <tns:ButtonNr>2</tns:ButtonNr>
   </tns:Button>
    <tns:Button>
-    <tns:ButtonName>Button 3</tns:ButtonName>
+    <tns:ButtonName>Brücke Nacht</tns:ButtonName>
     <tns:ButtonNr>3</tns:ButtonNr>
+  </tns:Button>
+  <tns:Button>
+  	<tns:ButtonName>Mast</tns:ButtonName>
+  	<tns:ButtonNr>4</tns:ButtonNr>
   </tns:Button>
 </tns:Model>
