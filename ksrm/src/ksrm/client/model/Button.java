@@ -1,4 +1,4 @@
-package ksrm.client;
+package ksrm.client.model;
 
 public class Button {
 	private String ButtonName;

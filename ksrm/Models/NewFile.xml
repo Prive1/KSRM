@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tns:Model xmlns:tns="http://www.example.org/ModelSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/ModelSchema ModelSchema.xsd ">
-  <tns:Typ>Schiff</tns:Typ>
+  <tns:Typ >Schiff</tns:Typ>
   <tns:Name>Bugsier</tns:Name>
   <tns:Button>
     <tns:ButtonName>Aussen</tns:ButtonName>
